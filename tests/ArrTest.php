@@ -40,6 +40,17 @@ final class ArrTest extends TestCase
     }
 
     /**
+     * @param  array  $items
+     * @param  array  $expected
+     * @return void
+     */
+    #[DataProviderExternal(ArrDataProvider::class, 'flattenProvider')]
+    public function testFlatten(array $items, array $expected): void
+    {
+        $this->assertSame($expected, Arr::flatten($items));
+    }
+
+    /**
      * @param  array                  $items
      * @param  string                 $key
      * @param  string|float|int|null  $value

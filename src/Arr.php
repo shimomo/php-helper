@@ -45,6 +45,20 @@ final class Arr
     }
 
     /**
+     * @param  array  $items
+     * @return array
+     */
+    public static function flatten(array $items): array
+    {
+        $response = [];
+        array_walk_recursive($items, function ($item) use (&$response) {
+            $response[] = $item;
+        });
+
+        return $response;
+    }
+
+    /**
      * @param  array                  $items
      * @param  string                 $key
      * @param  string|float|int|null  $value

@@ -54,6 +54,18 @@ final class ArrDataProvider
     /**
      * @return array
      */
+    public static function flattenProvider(): array
+    {
+        return [
+            ['items' => [1], 'expected' => [1]],
+            ['items' => [1, [2]], 'expected' => [1, 2]],
+            ['items' => [1, [2, ['number' => 3]]], 'expected' => [1, 2, 3]],
+        ];
+    }
+
+    /**
+     * @return array
+     */
     public static function whereProvider(): array
     {
         $items = [

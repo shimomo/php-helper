@@ -25,55 +25,12 @@ $items = [
     ['number' => 3, 'name' => 'ninjaC'],
 ];
 
-var_dump(Arr::firstWhere($items, 'number', 1));
-/*------------------------------
-array(2) {
-  ["number"]=>int(1)
-  ["name"]=>string(6) "ninjaA"
-}
-------------------------------*/
-
-var_dump(Arr::firstWhereKeys($items, ['number', 'name'], 1));
-/*------------------------------
-array(2) {
-  ["number"]=>int(1)
-  ["name"]=>string(6) "ninjaA"
-}
-------------------------------*/
-
-var_dump(Arr::where($items, 'number', 1));
-/*------------------------------
-array(1) {
-  [0]=>array(2) {
-    ["number"]=>int(1)
-    ["name"]=>string(6) "ninjaA"
-  }
-}
-------------------------------*/
-
-var_dump(Arr::whereIn($items, 'number', [1]));
-/*------------------------------
-array(1) {
-  [0]=>array(2) {
-    ["number"]=>int(1)
-    ["name"]=>string(6) "ninjaA"
-  }
-}
-------------------------------*/
-
-var_dump(Arr::whereNotIn($items, 'number', [1]));
-/*------------------------------
-array(2) {
-  [0]=>array(2) {
-    ["number"]=>int(2)
-    ["name"]=>string(6) "ninjaB"
-  }
-  [1]=>array(2) {
-    ["number"]=>int(3)
-    ["name"]=>string(6) "ninjaC"
-  }
-}
-------------------------------*/
+Arr::firstWhere($items, 'number', 1);
+Arr::firstWhereKeys($items, ['number', 'name'], 1);
+Arr::flatten($items);
+Arr::where($items, 'number', 1);
+Arr::whereIn($items, 'number', [1]);
+Arr::whereNotIn($items, 'number', [1]);
 ```
 
 ## License

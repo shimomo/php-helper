@@ -1,7 +1,7 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
     "name": "shimomo/helper",
-    "description": "PHP Helper",
+    "description": "PHP Helper for Shimomo's Projects",
     "license": "MIT",
     "type": "library",
     "authors": [

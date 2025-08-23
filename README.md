@@ -1,4 +1,4 @@
-# PHP Helper
+# PHP Helper for Shimomo's Projects
 
 [![test](https://github.com/shimomo/php-helper/actions/workflows/test.yml/badge.svg)](https://github.com/shimomo/php-helper/actions/workflows/test.yml)
 [![php](https://poser.pugx.org/shimomo/helper/require/php)](https://packagist.org/packages/shimomo/helper)

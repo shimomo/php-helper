@@ -22,4 +22,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh workflow enable keepalive.yml --repo $GITHUB_REPOSITORY
+          gh workflow enable psalm.yml --repo $GITHUB_REPOSITORY
           gh workflow enable test.yml --repo $GITHUB_REPOSITORY

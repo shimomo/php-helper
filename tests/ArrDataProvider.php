@@ -10,6 +10,13 @@ namespace Shimomo\Helper\Tests;
 final class ArrDataProvider
 {
     /**
+     * @psalm-return list<array{
+     *     items: list<array<string, int|float|string|null>>,
+     *     key: string,
+     *     value: int|float|string|null,
+     *     expected: array<string, int|float|string|null>
+     * }>
+     *
      * @return array
      */
     public static function firstWhereProvider(): array
@@ -31,6 +38,13 @@ final class ArrDataProvider
     }
 
     /**
+     * @psalm-return list<array{
+     *     items: list<array<string, int|float|string|null>>,
+     *     keys: list<string>,
+     *     value: int|float|string|null,
+     *     expected: array<string, int|float|string|null>
+     * }>
+     *
      * @return array
      */
     public static function firstWhereKeysProvider(): array
@@ -52,6 +66,11 @@ final class ArrDataProvider
     }
 
     /**
+     * @psalm-return list<array{
+     *     items: array<array-key, mixed>,
+     *     expected: list<mixed>
+     * }>
+     *
      * @return array
      */
     public static function flattenProvider(): array
@@ -64,6 +83,13 @@ final class ArrDataProvider
     }
 
     /**
+     * @psalm-return list<array{
+     *     items: list<array<string, int|float|string|null>>,
+     *     key: string,
+     *     value: int|float|string|null,
+     *     expected: list<array<string, int|float|string|null>>
+     * }>
+     *
      * @return array
      */
     public static function whereProvider(): array
@@ -85,6 +111,13 @@ final class ArrDataProvider
     }
 
     /**
+     * @psalm-return list<array{
+     *     items: list<array<string, int|float|string|null>>,
+     *     key: string,
+     *     values: list<int|float|string|null>,
+     *     expected: list<array<string, int|float|string|null>>
+     * }>
+     *
      * @return array
      */
     public static function whereInProvider(): array
@@ -104,6 +137,13 @@ final class ArrDataProvider
     }
 
     /**
+     * @psalm-return list<array{
+     *     items: list<array<string, int|float|string|null>>,
+     *     key: string,
+     *     values: list<int|float|string|null>,
+     *     expected: list<array<string, int|float|string|null>>
+     * }>
+     *
      * @return array
      */
     public static function whereNotInProvider(): array

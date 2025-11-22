@@ -10,9 +10,14 @@ namespace Shimomo\Helper;
 final class Arr
 {
     /**
-     * @param  array                  $items
-     * @param  string                 $key
-     * @param  string|float|int|null  $value
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param string $key
+     * @psalm-param int|float|string|null $value
+     * @psalm-return array<string, int|float|string|null>|null
+     *
+     * @param array $items
+     * @param string $key
+     * @param int|float|string|null $value
      * @return array|null
      */
     public static function firstWhere(array $items, string $key, string|float|int|null $value): ?array
@@ -27,9 +32,14 @@ final class Arr
     }
 
     /**
-     * @param  array                  $items
-     * @param  array                  $keys
-     * @param  string|float|int|null  $value
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param list<string> $keys
+     * @psalm-param int|float|string|null $value
+     * @psalm-return array<string, int|float|string|null>|null
+     *
+     * @param array $items
+     * @param array $keys
+     * @param int|float|string|null $value
      * @return array|null
      */
     public static function firstWhereKeys(array $items, array $keys, string|float|int|null $value): ?array
@@ -45,13 +55,18 @@ final class Arr
     }
 
     /**
-     * @param  array  $items
+     * @psalm-template T
+     * @psalm-param array<array-key, T|array> $items
+     * @psalm-return list<T>
+     *
+     * @param array $items
      * @return array
      */
     public static function flatten(array $items): array
     {
         $response = [];
-        array_walk_recursive($items, function ($item) use (&$response) {
+        array_walk_recursive($items, function (mixed $item) use (&$response) {
+            /** @psalm-var T */
             $response[] = $item;
         });
 
@@ -59,12 +74,17 @@ final class Arr
     }
 
     /**
-     * @param  array                  $items
-     * @param  string                 $key
-     * @param  string|float|int|null  $value
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param string $key
+     * @psalm-param int|float|string|null $value
+     * @psalm-return list<array<string, int|float|string|null>>
+     *
+     * @param array $items
+     * @param string $key
+     * @param int|float|string|null $value
      * @return array
      */
-    public static function where(array $items, string $key, string|float|int|null $value): array
+    public static function where(array $items, string $key, int|float|string|null $value): array
     {
         return array_values(array_filter($items, function ($item) use ($key, $value) {
             return isset($item[$key]) && $item[$key] === $value;
@@ -72,9 +92,14 @@ final class Arr
     }
 
     /**
-     * @param  array   $items
-     * @param  string  $key
-     * @param  array   $values
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param string $key
+     * @psalm-param list<int|float|string|null> $value
+     * @psalm-return list<array<string, int|float|string|null>>
+     *
+     * @param array $items
+     * @param string $key
+     * @param array $values
      * @return array
      */
     public static function whereIn(array $items, string $key, array $values): array
@@ -85,9 +110,14 @@ final class Arr
     }
 
     /**
-     * @param  array   $items
-     * @param  string  $key
-     * @param  array   $values
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param string $key
+     * @psalm-param list<int|float|string|null> $value
+     * @psalm-return list<array<string, int|float|string|null>>
+     *
+     * @param array $items
+     * @param string $key
+     * @param array $values
      * @return array
      */
     public static function whereNotIn(array $items, string $key, array $values): array

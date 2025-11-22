@@ -14,34 +14,50 @@ use Shimomo\Helper\Arr;
 final class ArrTest extends TestCase
 {
     /**
-     * @param  array                  $items
-     * @param  string                 $key
-     * @param  string|float|int|null  $value
-     * @param  array                  $expected
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param string $key
+     * @psalm-param int|float|string|null $value
+     * @psalm-param array<string, int|float|string|null> $expected
+     * @psalm-return void
+     *
+     * @param array $items
+     * @param string $key
+     * @param int|float|string|null $value
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ArrDataProvider::class, 'firstWhereProvider')]
-    public function testFirstWhere(array $items, string $key, string|float|int|null $value, array $expected): void
+    public function testFirstWhere(array $items, string $key, int|float|string|null $value, array $expected): void
     {
         $this->assertSame($expected, Arr::firstWhere($items, $key, $value));
     }
 
     /**
-     * @param  array                  $items
-     * @param  array                  $keys
-     * @param  string|float|int|null  $value
-     * @param  array                  $expected
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param list<string> $keys
+     * @psalm-param int|float|string|null $value
+     * @psalm-param array<string, int|float|string|null> $expected
+     * @psalm-return void
+     *
+     * @param array $items
+     * @param array $keys
+     * @param int|float|string|null $value
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ArrDataProvider::class, 'firstWhereKeysProvider')]
-    public function testFirstWhereKeys(array $items, array $keys, string|float|int|null $value, array $expected): void
+    public function testFirstWhereKeys(array $items, array $keys, int|float|string|null $value, array $expected): void
     {
         $this->assertSame($expected, Arr::firstWhereKeys($items, $keys, $value));
     }
 
     /**
-     * @param  array  $items
-     * @param  array  $expected
+     * @psalm-param array<array-key, mixed> $items
+     * @psalm-param list<mixed> $expected
+     * @psalm-return void
+     *
+     * @param array $items
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ArrDataProvider::class, 'flattenProvider')]
@@ -51,23 +67,35 @@ final class ArrTest extends TestCase
     }
 
     /**
-     * @param  array                  $items
-     * @param  string                 $key
-     * @param  string|float|int|null  $value
-     * @param  array                  $expected
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param string $key
+     * @psalm-param int|float|string|null $value
+     * @psalm-param list<array<string, int|float|string|null>> $expected
+     * @psalm-return void
+     *
+     * @param array $items
+     * @param string $key
+     * @param int|float|string|null $value
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ArrDataProvider::class, 'whereProvider')]
-    public function testWhere(array $items, string $key, string|float|int|null $value, array $expected): void
+    public function testWhere(array $items, string $key, int|float|string|null $value, array $expected): void
     {
         $this->assertSame($expected, Arr::where($items, $key, $value));
     }
 
     /**
-     * @param  array   $items
-     * @param  string  $key
-     * @param  array   $values
-     * @param  array   $expected
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param string $key
+     * @psalm-param list<int|float|string|null> $values
+     * @psalm-param list<array<string, int|float|string|null>> $expected
+     * @psalm-return void
+     *
+     * @param array $items
+     * @param string $key
+     * @param array $values
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ArrDataProvider::class, 'whereInProvider')]
@@ -77,10 +105,16 @@ final class ArrTest extends TestCase
     }
 
     /**
-     * @param  array   $items
-     * @param  string  $key
-     * @param  array   $values
-     * @param  array   $expected
+     * @psalm-param list<array<string, int|float|string|null>> $items
+     * @psalm-param string $key
+     * @psalm-param list<int|float|string|null> $values
+     * @psalm-param list<array<string, int|float|string|null>> $expected
+     * @psalm-return void
+     *
+     * @param array $items
+     * @param string $key
+     * @param array $values
+     * @param array $expected
      * @return void
      */
     #[DataProviderExternal(ArrDataProvider::class, 'whereNotInProvider')]
